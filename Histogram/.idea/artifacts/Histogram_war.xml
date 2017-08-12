@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Histogram:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="histogram-1.0.war">
+      <element id="artifact" artifact-name="Histogram:war exploded" />
+    </root>
+  </artifact>
+</component>

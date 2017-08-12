@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+</h:head>
+
+<h:body>
+    <h:form id="histogramForm">
+        <h:panelGrid id="panel" columns="6" cellpadding="5">
+            <p:outputLabel for="numberOfBuckets" value="Number Of Buckets:" />
+            <p:outputLabel for="startDate" value="Start Date:" />
+            <p:outputLabel for="endDate" value="End Date:" />
+            <p:outputLabel for="input" value="Input:" />
+            <p:outputLabel for="output" value="Output:" />
+            <p:outputLabel value="" />
+            <p:inputText id="numberOfBuckets" value="#{histogram.numberOfBuckets}" required="true"/>
+            <p:calendar id="startDate" required="true"  value="#{histogram.startDate}" pattern="yyyyMMdd" mask="true" />
+            <p:calendar id="endDate" required="true" value="#{histogram.endDate}" pattern="yyyyMMdd" mask="true" />
+            <p:inputText id="input" required="true"  value="#{histogram.input}"/>
+            <p:inputText id="output" required="true"  value="#{histogram.output}"/>
+
+            <p:commandButton action="#{histogram.mergeHistograms}" value="Merge Histograms" update="panel">
+                <f:ajax execute="histogramForm" render="mesaj"/>
+            </p:commandButton>
+
+
+            <p:message for="numberOfBuckets" style="color:red" />
+            <p:message for="startDate" style="color:red" />
+            <p:message for="endDate" style="color:red" />
+            <p:message for="input" style="color:red" />
+            <p:message for="output" style="color:red" />
+        </h:panelGrid>
+        <h:panelGrid columns="1">
+            <h:outputText id="mesaj" value="#{histogram.histogramInformation}"/>
+        </h:panelGrid>
+    </h:form>
+</h:body>
+</html> 
